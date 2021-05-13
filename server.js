@@ -10,6 +10,7 @@ const PORT = process.env.PORT ||8080
 // parse request to body parser
 
 app.use(express.urlencoded({ extended: true }));
+
 app.use(express.json());
 
 // log request 
@@ -19,10 +20,9 @@ app.use(morgan('tiny'));
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"))
 //load assets
-app.use('/css',express.static(path.resolve(__dirname,"assets/css")));
-//css/style.css
-app.use('/css',express.static(path.resolve(__dirname,"assets/img")));
-app.use('/css',express.static(path.resolve(__dirname,"assets/js")));
+
+app.use(express.static(path.join(__dirname, "assets")));
+
 
 
 app.get('/', (req,res)=>{
@@ -30,15 +30,6 @@ app.get('/', (req,res)=>{
     res.render('index');
     
 });
-
-
-
-
-
-
-
-
-
 
 app.listen(PORT,()=>{console.log('Server is running Sucessfully ');});
 
