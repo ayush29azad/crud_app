@@ -17,10 +17,6 @@ a {
     text-decoration: none;
     font-family: 'PT Sans', sans-serif;
 }
-i{ 
-    color:black;
-    border:2px solid black;
-}
 
 .container{
     max-width: 1024px;
@@ -121,25 +117,6 @@ table{
     border-color: #32383e;
 }
 
-@media only screen and (max-width: 1024px){
-    table, thead, tbody, th, td, tr{
-        display: block;
-    }
-
-    thead tr{
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-    }
-
-    tr { border: 1px solid var(--border);}
-
-    td{
-        border: none;
-        position: relative;
-    }
-
-}
 
 /*  add user & update user template */
 .form-title{
