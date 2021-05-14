@@ -17,6 +17,10 @@ a {
     text-decoration: none;
     font-family: 'PT Sans', sans-serif;
 }
+i{ 
+    color:black;
+    border:2px solid black;
+}
 
 .container{
     max-width: 1024px;
