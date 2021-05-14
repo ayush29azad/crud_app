@@ -35,8 +35,25 @@ exports.create = (req,res)=>{
 
 // retrrive and return of all userers/single user
 
+// retrieve and return all users/ retrive and return a single user
 exports.find = (req, res)=>{
 
+    if(req.query.id){
+        const id = req.query.id;
+
+        Userdb.findById(id)
+            .then(data =>{
+                if(!data){
+                    res.status(404).send({ message : "Not found user with id "+ id})
+                }else{
+                    res.send(data)
+                }
+            })
+            .catch(err =>{
+                res.status(500).send({ message: "Erro retrieving user with id " + id})
+            })
+
+    }else{
         Userdb.find()
             .then(user => {
                 res.send(user)
@@ -46,6 +63,8 @@ exports.find = (req, res)=>{
             })
     }
 
+    
+}
     
 
 
@@ -79,12 +98,6 @@ exports.update =(req,res)=>{
 
 // delete a user with specified user idx
 
-exports.delete =(req,res) =>{
-
-
-
-
-}
 
 exports.delete = (req, res)=>{
     const id = req.params.id;
